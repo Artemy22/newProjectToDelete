@@ -1,10 +1,11 @@
 {
-  "name": "",
-  "email": "",
-  "password": "",
-  "firstName": "",
-  "lastName": "",
-  "address": "",
-  "city": "",
-  "postCode": ""
+  "password": "oKYspjE9JQiP1qh2JM3H",
+  "firstName": "Dallas",
+  "lastName": "Brock.Gutmann37",
+  "address": "5616 Maybell Terrace",
+  "email": "Quinton90@hotmail.com",
+  "city": "North Emmastead",
+  "postCode": "11863-2055",
+  "name": "Dominique.Borer8",
+  "expectedError": "Error: Incorrect login or password provided."
 }
