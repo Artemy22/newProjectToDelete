@@ -1,3 +1,6 @@
+///<reference types="cypress"/>
+
+
 export const loginViaUI = (user) => {
     cy.visit('/')
     cy.get('#customer_menu_top').click()
@@ -52,17 +55,35 @@ export const loginSilentBetter = () => {
         window.sessionStorage.setItem('token', token)
     })
 }
-
+/*
 export const productFinder = (productTitleToFind) => {
-    for (let i = 1; i < 5; i++) {
-
+    while (cy.get('.pull-right .pagination').last().should('be.disabled')) {
         cy.get(".prdocutname").then(($a) => {
-            console.log($a.text())
             if ($a.text().includes(`${productTitleToFind}`)) {
                 cy.get(`[title="${productTitleToFind}"]`).click()
             } else {
-                cy.visit(`https://automationteststore.com/index.php?rt=product/search&keyword=e%20&category_id=0&sort=date_modified-ASC&limit=20&page=${i+1}`)
+                cy.visit(`https://automationteststore.com/index.php?rt=product/search&keyword=e%20&category_id=0&sort=date_modified-ASC&limit=20&page=${i}`)
             }
         })
     }
+}
+*/
+
+// if the last == '>>'
+
+export const productFinder = (productTitleToFind) => {
+    let getCounter; 
+    cy.get('.pull-right .pagination').find('li').then(elm => {
+        console.log(elm.length-1)
+        for (let i = 0; i < elm.length-1; i++) {
+            console.log(elm.length, i)
+            cy.get(".prdocutname").then(($a) => {
+                if ($a.text().includes(`${productTitleToFind}`)) {
+                    cy.get(`[title="${productTitleToFind}"]`).click()
+                } else {
+                    cy.visit(`https://automationteststore.com/index.php?rt=product/search&keyword=e%20&category_id=0&sort=date_modified-ASC&limit=20&page=${i}`)
+                }
+            })
+        }
+    })   
 }
