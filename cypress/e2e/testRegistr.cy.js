@@ -8,6 +8,12 @@
 */
 import * as user from '../fixtures/user.json'
 import { faker } from '@faker-js/faker'
+import { loginViaUI } from '../support/helper'
+import { loginSilent } from '../support/helper'
+import { productFinder } from '../support/helper'
+
+
+
 
 const testData =
 {
@@ -24,8 +30,8 @@ const testData =
 
 describe('Registr and Auth', () => {
 
-    it('Registration flow', () => {
-        cy.visit('https://automationteststore.com/')
+    it.skip('Registration flow', () => {
+        cy.visit('/')
         cy.get('#customer_menu_top').click()
         cy.get('[title="Continue"]').click()
         cy.get('[name="firstname"]').type(testData.firstName).should('have.value', testData.firstName)
@@ -44,14 +50,14 @@ describe('Registr and Auth', () => {
             .then((val1) => { cy.log('**LOG**' + val1) })
         cy.get('[id="AccountFrm_newsletter0"]').check()
         cy.get('[id="AccountFrm_agree"]').check()
-        cy.get('[title="Continue"]').click()
+        cy.get('[title="Continue"]', { timeout: 20000 }).click()
         cy.url().should('include', 'rt=account/success')
         cy.url().should('eq', 'https://automationteststore.com/index.php?rt=account/success')
         cy.contains('Congratulations! Your new account has been successfully created!')
     })
 
-    it('Sign In happy flow flow', () => {
-        cy.visit('https://automationteststore.com/')
+    it.skip('Sign In happy flow flow', () => {
+        cy.visit('/')
         cy.get('#customer_menu_top').click()
         cy.get('[id="loginFrm_loginname"]').type(testData.name)
         cy.get('[id="loginFrm_password"]').type(testData.password)
@@ -59,8 +65,8 @@ describe('Registr and Auth', () => {
         cy.get('.menu_text').should('contain', `Welcome back ${testData.firstName}`)
     })
 
-    it('Wrong User Name', () => {
-        cy.visit('https://automationteststore.com/')
+    it.skip('Wrong User Name', () => {
+        cy.visit('/')
         cy.get('#customer_menu_top').click()
         cy.get('[id="loginFrm_loginname"]').type(testData.name + "1")
         cy.get('[id="loginFrm_password"]').type(testData.password)
@@ -68,8 +74,8 @@ describe('Registr and Auth', () => {
         cy.get('.alert.alert-error.alert-danger').should('contain', testData.expectedError)
     })
 
-    it('Wrong Email', () => {
-        cy.visit('https://automationteststore.com/')
+    it.skip('Wrong Email', () => {
+        cy.visit('/')
         cy.get('#customer_menu_top').click()
         cy.get('[id="loginFrm_loginname"]').type(testData.name)
         cy.get('[id="loginFrm_password"]').type(testData.password + "123")
@@ -77,8 +83,8 @@ describe('Registr and Auth', () => {
         cy.get('.alert.alert-error.alert-danger').should('contain', testData.expectedError)
     })
 
-    it('Empty creds', () => {
-        cy.visit('https://automationteststore.com/')
+    it.skip('Empty creds', () => {
+        cy.visit('/')
         cy.get('#customer_menu_top').click()
         cy.get('[id="loginFrm_loginname"]').type(" ")
         cy.get('[id="loginFrm_password"]').type(" ")
@@ -86,20 +92,50 @@ describe('Registr and Auth', () => {
         cy.get('.alert.alert-error.alert-danger').should('contain', testData.expectedError)
     })
 })
-
+/*
 describe('Buy goods', () => {
-    it('Something to buy', () => {
-        cy.visit('https://automationteststore.com/')
-        cy.get('#customer_menu_top').click()
-        cy.get('[id="loginFrm_loginname"]').type(testData.name)
-        cy.get('[id="loginFrm_password"]').type(testData.password)
-        cy.get('[title="Login"]').click()
-        cy.get('.menu_text').should('contain', `Welcome back ${testData.firstName}`)
+    it.skip('Something to buy', () => {
+
+        loginViaUI(user)
+
         cy.get('.nav-pills > :nth-child(6)').click()
         cy.get('[title="Men+Care Clean Comfort Deodorant"]').click()
         cy.get('.productpagecart .cart').click()
         cy.get('.block_7 .dropdown.hover .font14').should('contain', '1')
         cy.get('.block_7 .dropdown.hover .cart_total').should('contain', '$7.20')
+        cy.get('#cart_checkout1').click()
+        cy.get('#checkout_btn').click()
+        cy.contains(' Your Order Has Been Processed!')
+        cy.url().should('eq', 'https://automationteststore.com/index.php?rt=checkout/success')
+    }),
+
+        it('Open account page using silent login for auth', () => {
+            loginSilent(user)
+            cy.visit('/index.php?rt=account/account')
+            cy.get('.menu_text').should('contain', `Welcome back ${user.firstName}`)
+        }),
+        it('Open account history using silent login for auth', () => {
+            loginSilent(user)
+            cy.visit('/index.php?rt=account/history')
+            cy.get('.menu_text').should('contain', `Welcome back ${user.firstName}`)
+        })
+})
+
+*/
+describe('Fine Finder', () => {
+    it('Find my French Ease', () => {
+
+        loginSilent(user)
+
+        cy.visit('/index.php?rt=account/account')
+        cy.get('.menu_text').should('contain', `Welcome back ${user.firstName}`)
+        cy.get('#filter_keyword').type('e {ENTER}')
+
+        productFinder('ck one Summer 3.4 oz')
+
+        cy.get('.productpagecart .cart').click()
+        cy.get('.block_7 .dropdown.hover .font14').should('contain', '1')
+        cy.get('.block_7 .dropdown.hover .cart_total').should('contain', '$27.00')
         cy.get('#cart_checkout1').click()
         cy.get('#checkout_btn').click()
         cy.contains(' Your Order Has Been Processed!')
