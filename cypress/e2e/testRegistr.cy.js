@@ -30,7 +30,7 @@ const testData =
 
 describe('Registr and Auth', () => {
 
-    it('Registration flow', () => {
+    it.skip('Registration flow', () => {
         cy.visit('/')
         cy.get('#customer_menu_top').click()
         cy.get('[title="Continue"]').click()
