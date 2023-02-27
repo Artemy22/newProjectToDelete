@@ -10,6 +10,7 @@ describe('Fine Finder', () => {
     it('Find my goods', () => {
 
         loginSilent(user)
+
         cy.visit('/index.php?rt=account/account')
         basePage.checkIfTopNavHaveUserName(user)
         basePage.findNeededValue('e')
@@ -20,8 +21,7 @@ describe('Fine Finder', () => {
         productPage.checkIfOnePosition()
         productPage.checkPriceOfGoods()
         productPage.clickCartCheckout()
-        productPage.clickAddToCartButton()
+        productPage.clickCartCheckoutButton()
         productPage.checkIfBought()
-
     })
 })

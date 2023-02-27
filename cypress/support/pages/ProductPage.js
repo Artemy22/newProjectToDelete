@@ -1,7 +1,7 @@
 class ProductPage {
 
     addToCartButton() {
-        return cy.get('.productpagecart .cart')
+        return cy.get('.mt20 .productpagecart')
     }
 
     onePositionInCart() {
@@ -37,6 +37,7 @@ class ProductPage {
     }
 
     clickCartCheckoutButton() {
+        cy.log('BEFORE CLICKING')
         this.checkoutButton().click()
     }
 
