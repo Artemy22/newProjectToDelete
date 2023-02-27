@@ -69,3 +69,7 @@ export const productFinder = (productTitleToFind) => {
         }
     })
 }
+
+export const inputFiller = (inputLocator, valueToEnter) => {
+    cy.get(inputLocator).type(valueToEnter).should('have.value', valueToEnter)
+}

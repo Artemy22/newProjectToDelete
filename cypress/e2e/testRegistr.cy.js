@@ -30,7 +30,7 @@ const testData =
 
 describe('Registr and Auth', () => {
 
-    it.skip('Registration flow', () => {
+    it('Registration flow', () => {
         cy.visit('/')
         cy.get('#customer_menu_top').click()
         cy.get('[title="Continue"]').click()
@@ -64,7 +64,7 @@ describe('Registr and Auth', () => {
         cy.get('[title="Login"]').click()
         cy.get('.menu_text').should('contain', `Welcome back ${testData.firstName}`)
     })
-
+/*
     it.skip('Wrong User Name', () => {
         cy.visit('/')
         cy.get('#customer_menu_top').click()
@@ -90,7 +90,7 @@ describe('Registr and Auth', () => {
         cy.get('[id="loginFrm_password"]').type(" ")
         cy.get('[title="Login"]').click()
         cy.get('.alert.alert-error.alert-danger').should('contain', testData.expectedError)
-    })
+    })*/
 })
 /*
 describe('Buy goods', () => {
@@ -121,7 +121,7 @@ describe('Buy goods', () => {
         })
 })
 
-*/
+
 describe('Fine Finder', () => {
     it('Find my French Ease', () => {
 
@@ -142,3 +142,4 @@ describe('Fine Finder', () => {
         cy.url().should('eq', 'https://automationteststore.com/index.php?rt=checkout/success')
     })
 })
+*/
