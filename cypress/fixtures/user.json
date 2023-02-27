@@ -9,5 +9,7 @@
   "name": "Newell_Ratke46",
   "expectedError": "Error: Incorrect login or password provided.",
   "country_id": "220",
-  "zone_id": "3490"
+  "zone_id": "3490",
+  "userNameStatic": "Gwen.Dach",
+  "userPasswordStatic": "mHUPPPvDMuefZR0zoyfK"
 }

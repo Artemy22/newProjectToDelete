@@ -13,14 +13,15 @@ user.email = faker.internet.email()
 user.name = faker.internet.userName()
 
 describe(' Auth', () => {
-    it.skip('Sign In happy flow flow', () => {
+    it('Sign In happy flow flow', () => {
         loginPage.visit()
         loginPage.submitLoginForm(user)
         accountPage.verifyUserName(user)
     })
 
-    it('Sign up', () => {
+    it.skip('Sign up', () => {
         loginPage.visit()
         createAccountPage.signUpFlow(user)
+        cy.log(user.name, user.password)
     })
 })

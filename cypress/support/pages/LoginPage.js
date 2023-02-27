@@ -31,8 +31,8 @@ class LoginPage {
 
     submitLoginForm(user){
         console.log(user.firstName)
-        this.getLoginField().type(user.lastName);
-        this.getPasswordField().type(user.password);
+        this.getLoginField().type(user.userNameStatic);
+        this.getPasswordField().type(user.userPasswordStatic);
         this.getSubmitButton().click();
     }
 }
