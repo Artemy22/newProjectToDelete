@@ -49,44 +49,6 @@ class CreateAccountPage {
 
         cy.contains(this.successSignUpText)
     }
-
-/*
-
-enterFirstName(user) {
-    this.firstName().type(user.firstName)
-}
-enterLastName(user) {
-    this.lastName().type(user.lastName)
-}
-enterEmail(user) {
-    this.email().type(user.email)
-}
-enterAddress(user) {
-    this.address().type(user.address)
-}
-enterCity(user) {
-    this.city().type(user.city)
-}
-enterCountryId(user) {
-    this.country_id().type(user.country_id)
-}
-
-enterZoneId(user) {
-    this.zone_id().type(user.zone_id)
-}
-
-enterPostcode(user) {
-    this.postcode().type(user.postCode)
-}
-
-enterPassword(user) {
-    this.password().type(user.password)
-}
-
-enterConfirmPassword(user) {
-    this.confirmPassword().type(user.password)
-}
-*/
 }
 
 export default new CreateAccountPage()

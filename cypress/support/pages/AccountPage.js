@@ -6,7 +6,7 @@ class AccountPage {
     }
 
     verifyUserName(user) {
-        cy.get('.menu_text').should('contain', user.firstName)
+        cy.get('.menu_text').should('contain', user.firstNameForLogin)
     }
 }
 

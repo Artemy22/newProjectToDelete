@@ -19,7 +19,7 @@ describe(' Auth', () => {
         accountPage.verifyUserName(user)
     })
 
-    it.skip('Sign up', () => {
+    it('Sign up', () => {
         loginPage.visit()
         createAccountPage.signUpFlow(user)
         cy.log(user.name, user.password)

@@ -11,9 +11,7 @@ class BasePage {
     findNeededValue(e) {
         cy.get( this.inputSearchKeyword).type(e)
         cy.get( this.inputSearchKeyword).type('{enter}')
-
     }
-
 }
 
 export default new BasePage()
