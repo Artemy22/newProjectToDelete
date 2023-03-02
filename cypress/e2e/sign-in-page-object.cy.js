@@ -22,6 +22,5 @@ describe(' Auth', () => {
     it('Sign up', () => {
         loginPage.visit()
         createAccountPage.signUpFlow(user)
-        cy.log(user.name, user.password)
     })
 })

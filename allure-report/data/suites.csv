@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"skipped","Thu Mar 02 22:25:16 TRT 2023","Thu Mar 02 22:25:16 TRT 2023","3","","Registr and Auth","","","","Registration flow",""
+"passed","Thu Mar 02 22:24:37 TRT 2023","Thu Mar 02 22:24:50 TRT 2023","13066","","Fine Finder","","","","Find my goods",""
+"skipped","Thu Mar 02 22:25:16 TRT 2023","Thu Mar 02 22:25:16 TRT 2023","1","","Registr and Auth","","","","Sign In happy flow flow",""
+"passed","Thu Mar 02 22:24:56 TRT 2023","Thu Mar 02 22:25:01 TRT 2023","4285",""," Auth","","","","Sign In happy flow flow",""
+"passed","Thu Mar 02 22:25:01 TRT 2023","Thu Mar 02 22:25:10 TRT 2023","9334",""," Auth","","","","Sign up",""
