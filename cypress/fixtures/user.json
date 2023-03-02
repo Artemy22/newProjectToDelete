@@ -1,11 +1,16 @@
 {
-  "password": "oKYspjE9JQiP1qh2JM3H",
-  "firstName": "Dallas",
+  "password": "mHUPPPvDMuefZR0zoyfK",
+  "firstName": "Derrick",
+  "firstNameForLogin": "Dallas",
   "lastName": "Brock.Gutmann37",
   "address": "5616 Maybell Terrace",
   "email": "Quinton90@hotmail.com",
   "city": "North Emmastead",
   "postCode": "11863-2055",
-  "name": "Dominique.Borer8",
-  "expectedError": "Error: Incorrect login or password provided."
+  "name": "Newell_Ratke46",
+  "expectedError": "Error: Incorrect login or password provided.",
+  "country_id": "220",
+  "zone_id": "3490",
+  "userNameStatic": "Gwen.Dach",
+  "userPasswordStatic": "mHUPPPvDMuefZR0zoyfK"
 }
