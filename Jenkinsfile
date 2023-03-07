@@ -11,6 +11,7 @@ tools {nodejs "NodeJS"}
     }
     stage('cypress run') {
       steps {
+        //catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {sh HERE}
         sh 'npm run allure:clear'
         sh 'npm run cy:run:allure'
       }
