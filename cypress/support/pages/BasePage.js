@@ -8,7 +8,7 @@ class BasePage {
         return  cy.get('#customer_menu_top').should('contain', `Welcome back ${user.firstName}`)
     }
 
-
+//web upd
     //test 
     
     findNeededValue(e) {
